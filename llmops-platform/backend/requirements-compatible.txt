@@ -1,0 +1,21 @@
+# Compatible requirements for Python 3.14
+# Core FastAPI without pydantic-core issues
+fastapi==0.115.0
+uvicorn==0.32.0
+
+# Database - using async sqlite
+aiosqlite==0.20.0
+sqlalchemy==2.0.36
+
+# Authentication
+python-jose==3.3.0
+cryptography==43.0.3
+passlib==1.7.4
+bcrypt==4.2.1
+
+# Utilities
+python-multipart==0.0.12
+python-dotenv==1.0.1
+
+# Optional but lightweight
+httpx==0.28.1

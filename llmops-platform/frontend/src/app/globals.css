@@ -1,0 +1,183 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-gray-200;
+  }
+  
+  body {
+    @apply bg-gradient-to-br from-gray-50 via-blue-50 to-purple-50 text-gray-900 antialiased;
+    min-height: 100vh;
+  }
+}
+
+@layer components {
+  /* Card Components */
+  .card {
+    @apply bg-white rounded-2xl shadow-soft hover:shadow-medium transition-all duration-300 border border-gray-100;
+  }
+  
+  .card-hover {
+    @apply card hover:scale-[1.02] hover:shadow-hard;
+  }
+  
+  .card-gradient {
+    @apply bg-gradient-to-br from-white to-gray-50 rounded-2xl shadow-soft hover:shadow-medium transition-all duration-300;
+  }
+  
+  /* Button Components */
+  .btn {
+    @apply px-6 py-2.5 rounded-xl font-medium transition-all duration-200 shadow-sm hover:shadow-md;
+  }
+  
+  .btn-primary {
+    @apply btn bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white;
+  }
+  
+  .btn-secondary {
+    @apply btn bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white;
+  }
+  
+  .btn-success {
+    @apply btn bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white;
+  }
+  
+  .btn-outline {
+    @apply btn bg-white border-2 border-gray-300 hover:border-blue-500 hover:bg-blue-50 text-gray-700;
+  }
+  
+  /* Input Components */
+  .input {
+    @apply w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:ring-4 focus:ring-blue-100 transition-all duration-200 bg-white;
+  }
+  
+  /* Badge Components */
+  .badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold;
+  }
+  
+  .badge-blue {
+    @apply badge bg-blue-100 text-blue-700;
+  }
+  
+  .badge-green {
+    @apply badge bg-green-100 text-green-700;
+  }
+  
+  .badge-yellow {
+    @apply badge bg-yellow-100 text-yellow-700;
+  }
+  
+  .badge-red {
+    @apply badge bg-red-100 text-red-700;
+  }
+  
+  .badge-purple {
+    @apply badge bg-purple-100 text-purple-700;
+  }
+  
+  /* Stat Card */
+  .stat-card {
+    @apply card p-6 relative overflow-hidden;
+  }
+  
+  .stat-card::before {
+    content: '';
+    @apply absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-400/10 to-purple-400/10 rounded-full blur-2xl;
+  }
+  
+  /* Gradient Text */
+  .gradient-text {
+    @apply bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent;
+  }
+  
+  /* Glass Effect */
+  .glass {
+    @apply bg-white/70 backdrop-blur-xl border border-white/20 shadow-soft;
+  }
+  
+  /* Animated Background */
+  .animated-bg {
+    background: linear-gradient(-45deg, #667eea, #764ba2, #f093fb, #4facfe);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+  }
+  
+  @keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+  /* Shimmer Effect */
+  .shimmer {
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent);
+    background-size: 200% 100%;
+    animation: shimmer 2s infinite;
+  }
+  
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+  
+  /* Icon Background */
+  .icon-bg {
+    @apply w-14 h-14 rounded-2xl flex items-center justify-center shadow-sm;
+  }
+  
+  .icon-bg-blue {
+    @apply icon-bg bg-gradient-to-br from-blue-400 to-blue-600;
+  }
+  
+  .icon-bg-green {
+    @apply icon-bg bg-gradient-to-br from-green-400 to-green-600;
+  }
+  
+  .icon-bg-yellow {
+    @apply icon-bg bg-gradient-to-br from-yellow-400 to-yellow-600;
+  }
+  
+  .icon-bg-red {
+    @apply icon-bg bg-gradient-to-br from-red-400 to-red-600;
+  }
+  
+  .icon-bg-purple {
+    @apply icon-bg bg-gradient-to-br from-purple-400 to-purple-600;
+  }
+  
+  /* Navigation */
+  .nav-link {
+    @apply px-4 py-2 rounded-xl font-medium transition-all duration-200;
+  }
+  
+  .nav-link-active {
+    @apply nav-link bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-md;
+  }
+  
+  .nav-link-inactive {
+    @apply nav-link text-gray-600 hover:bg-blue-50 hover:text-blue-700;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  /* Scrollbar Styling */
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-track {
+    @apply bg-gray-100 rounded-full;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    @apply bg-gray-300 rounded-full hover:bg-gray-400;
+  }
+}

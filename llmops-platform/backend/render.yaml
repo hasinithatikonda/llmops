@@ -1,0 +1,24 @@
+services:
+  # Backend API Service
+  - type: web
+    name: llmops-backend
+    env: python
+    region: oregon
+    plan: free
+    branch: main
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "uvicorn app.main_simple:app --host 0.0.0.0 --port $PORT"
+    healthCheckPath: /health
+    envVars:
+      - key: SECRET_KEY
+        generateValue: true
+      - key: ALGORITHM
+        value: HS256
+      - key: ACCESS_TOKEN_EXPIRE_MINUTES
+        value: 30
+      - key: GROQ_API_KEY
+        sync: false  # Set this manually in Render dashboard
+      - key: MONGODB_URI
+        sync: false  # Optional, set if using MongoDB
+      - key: FRONTEND_URL
+        value: https://llmops-frontend.onrender.com
