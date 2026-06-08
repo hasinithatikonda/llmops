@@ -1,6 +1,7 @@
 """
 Simplified FastAPI Application for LLMOps Monitoring Platform
 Works with basic dependencies available in Python 3.14
+Updated: 2026-06-08 - Fixed CORS for Vercel deployment
 """
 from fastapi import FastAPI, HTTPException, Depends, status
 from fastapi.middleware.cors import CORSMiddleware
