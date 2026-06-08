@@ -74,12 +74,13 @@ app = FastAPI(
     version="1.0.0"
 )
 
-# CORS - Allow localhost and all Vercel deployments
+# CORS - Allow all Vercel deployments and localhost
+# Using wildcard for development, should restrict in production
 app.add_middleware(
     CORSMiddleware,
-    allow_origin_regex=r"https://.*\.vercel\.app|http://localhost:\d+",
-    allow_credentials=True,
-    allow_methods=["*"],
+    allow_origins=["*"],  # Allow all origins for now
+    allow_credentials=False,  # Must be False when using allow_origins=["*"]
+    allow_methods=["GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"],
     allow_headers=["*"],
 )
 
