@@ -74,10 +74,20 @@ app = FastAPI(
     version="1.0.0"
 )
 
-# CORS
+# CORS - Allow multiple origins
+allowed_origins = [
+    "http://localhost:3000",
+    "https://llmops.vercel.app",
+    "https://llmops-nu.vercel.app",
+]
+
+# Add FRONTEND_URL from env if set
+if FRONTEND_URL and FRONTEND_URL not in allowed_origins:
+    allowed_origins.append(FRONTEND_URL)
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[FRONTEND_URL, "http://localhost:3000"],
+    allow_origins=allowed_origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
