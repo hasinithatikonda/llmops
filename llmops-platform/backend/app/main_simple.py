@@ -25,6 +25,12 @@ ACCESS_TOKEN_EXPIRE_MINUTES = int(os.getenv("ACCESS_TOKEN_EXPIRE_MINUTES", "30")
 FRONTEND_URL = os.getenv("FRONTEND_URL", "http://localhost:3000")
 GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 
+# Debug: Print if API key is loaded (without revealing the key)
+if GROQ_API_KEY:
+    print(f"✓ Groq API key loaded (length: {len(GROQ_API_KEY)} chars)")
+else:
+    print("✗ WARNING: GROQ_API_KEY not found in environment variables!")
+
 # Initialize Groq client
 groq_client = Groq(api_key=GROQ_API_KEY) if GROQ_API_KEY else None
 
