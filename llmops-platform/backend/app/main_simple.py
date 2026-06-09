@@ -706,6 +706,11 @@ async def chat(
         )
         
     except Exception as e:
+        # Log the full error for debugging
+        print(f"ERROR in chat endpoint: {type(e).__name__}: {str(e)}")
+        import traceback
+        traceback.print_exc()
+        
         # Track error
         activity = get_or_create_user_activity(current_user.id)
         if model_id in activity["model_usage"]:
